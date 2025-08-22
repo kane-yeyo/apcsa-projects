@@ -24,7 +24,7 @@ public class Diamond implements Directions{
 
         // starting the letter R
         rob.putBeeper();
-
+dddddd
 
 
         // done with the line, now on the curve

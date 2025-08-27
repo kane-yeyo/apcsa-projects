@@ -9,7 +9,8 @@ class Math {
     System.out.println("Hello world!");
 
     //We will be using System.out.println and System.out.print throughout the year. Try using both below to see what the difference is!
-
+    System.out.print("Hi");
+    System.out.println("Hi");
 
 
 
@@ -28,17 +29,27 @@ class Math {
     //For AP we need to know: int, double, boolean
 
     //List examples of the types below and give definition
-    //int (integer):
-    //double:
-    //boolean:
+    //int (integer): used for positive and negative whole numbers, ex. -10, 10, etc.
+    //double: used for rational numbers, ex. 3.14, 2,72, etc.
+    //boolean: used for true or false statemements
 
     //For now we are just going to work with primitive
 
     //Create 3 variables of each of the above types (USE GOOD CODING PRACTICE WHEN CREATING THE VARIABLES
+    //Integers
+    int age = 16;
+    int csPeriod = 6;
+    int year = 2025;
 
+    //Doubles
+    double pi = 3.14;
+    double e = 2.72;
+    double price = 19.99;
 
-
-
+    //Booleans
+    boolean isAwake = true;
+    boolean currentlyCoding = true;
+    boolean workFinished = false;
 
     //MATH TIME!
 
@@ -50,14 +61,28 @@ class Math {
     //Create codes that will print the following:
 
     //Odd integers from 1 to 100, inclusive of both
-
+    for (int i=1; i<=100; i++) {
+      if (i % 2 != 0) {
+        System.out.println(i);
+      }
+    }
 
 
     //All multiples of 3 from 1 to 100
-
+    for (int i=1; i<=100; i++) {
+      if (i % 3 == 0) {
+        System.out.println(i);
+      }
+    }
 
 
 
     //Starting at 1000, print on the same line (with a - [hypthen] between each) all of the numbers that end in 0 going down to 0
-  }
+    for (int i=1000; i>=0; i-=10) {
+      System.out.print(i);
+      if (i>0) {
+        System.out.print("-");
+      }
+    }
+  } 
 }

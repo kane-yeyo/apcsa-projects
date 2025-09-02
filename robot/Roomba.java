@@ -37,15 +37,18 @@ public class Roomba implements Directions {
 		roomba = new Robot(startX, startY, East, 0);
 		if (roomba.nextToABeeper()) {
 			roomba.pickBeeper();
+			int totalBeepers = 0;
 			totalBeepers++;
 		}
 		// the line below causes a null pointer exception
 		// what is that and why are we getting it?
 		roomba.move();
-		
+		roomba.move();
+		roomba.move();
 
 
-		int totalBeepers = 0; // Need to move this somewhere else.
+
+		// Need to move this somewhere else.
         // This method should return the total number of beepers cleaned up.
 		return totalBeepers;
 	}

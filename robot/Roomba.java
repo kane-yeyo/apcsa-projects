@@ -34,7 +34,7 @@ public class Roomba implements Directions {
 		 * and cleans up all piles of beepers. Think about ways you can break this
 		 * large, complex task into smaller, easier to solve problems.
 		 */
-
+		roomba = new Robot(startX, startY, East, 0);
 		// the line below causes a null pointer exception
 		// what is that and why are we getting it?
 		roomba.move();

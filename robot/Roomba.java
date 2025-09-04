@@ -25,7 +25,7 @@ public class Roomba implements Directions {
 
 		World.readWorld(worldName);
 		World.setVisible(true);
-		World.setDelay(10);
+		World.setDelay(5);
 
 		/** This section will have all the logic that takes the Robot to every location
 		 * and cleans up all piles of beepers. Think about ways you can break this
@@ -41,51 +41,18 @@ public class Roomba implements Directions {
 		// the code for cleaning up all the beepers
 		roomba.move();
 		roomba.move();
-		if (roomba.nextToABeeper()) {
-			roomba.pickBeeper();
-			totalBeepersCleaned++;
+		for (int i=1; i<=7; i++) {
+			if (roomba.nextToABeeper()) {
+				roomba.pickBeeper();
+				totalBeepersCleaned++;
+			}
 		}
 		roomba.move();
-		if (roomba.nextToABeeper()) {
-			roomba.pickBeeper();
-			totalBeepersCleaned++;
-		}
-		roomba.turnLeft();
-		roomba.move();
-		roomba.turnLeft();
-		roomba.turnLeft();
-		roomba.turnLeft();
-		roomba.move();
-		roomba.move();
-		if (roomba.nextToABeeper()) {
-			roomba.pickBeeper();
-			totalBeepersCleaned++;
-		}
-		roomba.turnLeft();
-		roomba.move();
-		if (roomba.nextToABeeper()) {
-			roomba.pickBeeper();
-			totalBeepersCleaned++;
-		}
-		roomba.move();
-		roomba.move();
-		roomba.turnLeft();
-		roomba.turnLeft();
-		roomba.turnLeft();
-		roomba.move();
-		roomba.move();
-		if (roomba.nextToABeeper()) {
-			roomba.pickBeeper();
-			totalBeepersCleaned++;
-		}
-		roomba.turnLeft();
-		roomba.turnLeft();
-		roomba.move();
-		roomba.move();
-		roomba.move();
-		if (roomba.nextToABeeper()) {
-			roomba.pickBeeper();
-			totalBeepersCleaned++;
+		for (int i=1; i<=6; i++) {
+			if (roomba.nextToABeeper()) {
+				roomba.pickBeeper();
+				totalBeepersCleaned++;
+			}
 		}
 		roomba.turnLeft();
 		roomba.move();
@@ -93,9 +60,56 @@ public class Roomba implements Directions {
 		roomba.turnLeft();
 		roomba.turnLeft();
 		roomba.move();
-		if (roomba.nextToABeeper()) {
-			roomba.pickBeeper();
-			totalBeepersCleaned++;
+		roomba.move();
+		for (int i=1; i<=3; i++) {
+			if (roomba.nextToABeeper()) {
+				roomba.pickBeeper();
+				totalBeepersCleaned++;
+			}
+		}
+		roomba.turnLeft();
+		roomba.move();
+		for (int i=1; i<=13; i++) {
+			if (roomba.nextToABeeper()) {
+				roomba.pickBeeper();
+				totalBeepersCleaned++;
+			}
+		}
+		roomba.move();
+		roomba.move();
+		roomba.turnLeft();
+		roomba.turnLeft();
+		roomba.turnLeft();
+		roomba.move();
+		roomba.move();
+		for (int i=1; i<=6; i++) {
+			if (roomba.nextToABeeper()) {
+				roomba.pickBeeper();
+				totalBeepersCleaned++;
+			}
+		}
+		roomba.turnLeft();
+		roomba.turnLeft();
+		roomba.move();
+		roomba.move();
+		roomba.move();
+		for (int i=1; i<=6; i++) {
+			if (roomba.nextToABeeper()) {
+				roomba.pickBeeper();
+				totalBeepersCleaned++;
+			}
+		}
+		roomba.turnLeft();
+		roomba.move();
+		roomba.turnLeft();
+		roomba.turnLeft();
+		roomba.turnLeft();
+		roomba.move();
+		for (int i=1; i<=7; i++) {
+			if (roomba.nextToABeeper()) {
+				roomba.pickBeeper();
+				totalBeepersCleaned++;
+			}
 		}
 		roomba.turnLeft();
 		roomba.turnLeft();
@@ -103,17 +117,21 @@ public class Roomba implements Directions {
 		roomba.move();
 		roomba.turnLeft();
 		roomba.move();
-		if (roomba.nextToABeeper()) {
-			roomba.pickBeeper();
-			totalBeepersCleaned++;
+		for (int i=1; i<=5; i++) {
+			if (roomba.nextToABeeper()) {
+				roomba.pickBeeper();
+				totalBeepersCleaned++;
+			}
 		}
 		roomba.move();
 		roomba.turnLeft();
 		roomba.move();
 		roomba.move();
-		if (roomba.nextToABeeper()) {
-			roomba.pickBeeper();
-			totalBeepersCleaned++;
+		for (int i=1; i<=6; i++) {
+			if (roomba.nextToABeeper()) {
+				roomba.pickBeeper();
+				totalBeepersCleaned++;
+			}
 		}
 		roomba.move();
 

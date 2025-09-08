@@ -39,84 +39,65 @@ public class Roomba implements Directions {
 		int totalBeepersCleaned = 0;
 		
 		// the code for cleaning up all the beepers
-		roomba.move();
-		roomba.move();
-		while (roomba.nextToABeeper()) {
+		while (roomba.frontIsClear()) {
+			while (roomba.nextToABeeper()) {
 			roomba.pickBeeper();
 			totalBeepersCleaned++;
-		}
-		roomba.move();
-		while (roomba.nextToABeeper()) {
-			roomba.pickBeeper();
-			totalBeepersCleaned++;
+			}
+			roomba.move();
 		}
 		roomba.turnLeft();
 		roomba.move();
 		roomba.turnLeft();
-		roomba.turnLeft();
-		roomba.turnLeft();
-		roomba.move();
-		roomba.move();
-		while (roomba.nextToABeeper()) {
+		while (roomba.frontIsClear()) {
+			while (roomba.nextToABeeper()) {
 			roomba.pickBeeper();
 			totalBeepersCleaned++;
-		}
-		roomba.turnLeft();
-		roomba.move();
-		while (roomba.nextToABeeper()) {
-			roomba.pickBeeper();
-			totalBeepersCleaned++;
-		}
-		roomba.move();
-		roomba.move();
-		roomba.turnLeft();
-		roomba.turnLeft();
-		roomba.turnLeft();
-		roomba.move();
-		roomba.move();
-		while (roomba.nextToABeeper()) {
-			roomba.pickBeeper();
-			totalBeepersCleaned++;
-		}
-		roomba.turnLeft();
-		roomba.turnLeft();
-		roomba.move();
-		roomba.move();
-		roomba.move();
-		while (roomba.nextToABeeper()) {
-			roomba.pickBeeper();
-			totalBeepersCleaned++;
-		}
-		roomba.turnLeft();
-		roomba.move();
-		roomba.turnLeft();
-		roomba.turnLeft();
-		roomba.turnLeft();
-		roomba.move();
-		while (roomba.nextToABeeper()) {
-			roomba.pickBeeper();
-			totalBeepersCleaned++;
+			}
+			roomba.move();
 		}
 		roomba.turnLeft();
 		roomba.turnLeft();
 		roomba.turnLeft();
 		roomba.move();
 		roomba.turnLeft();
-		roomba.move();
-		while (roomba.nextToABeeper()) {
+		roomba.turnLeft();
+		roomba.turnLeft();
+		while (roomba.frontIsClear()) {
+			while (roomba.nextToABeeper()) {
 			roomba.pickBeeper();
 			totalBeepersCleaned++;
+			}
+			roomba.move();
 		}
-		roomba.move();
 		roomba.turnLeft();
 		roomba.move();
-		roomba.move();
-		while (roomba.nextToABeeper()) {
+		roomba.turnLeft();
+		while (roomba.frontIsClear()) {
+			while (roomba.nextToABeeper()) {
 			roomba.pickBeeper();
 			totalBeepersCleaned++;
+			}
+			roomba.move();
 		}
+		roomba.turnLeft();
+		roomba.turnLeft();
+		roomba.turnLeft();
 		roomba.move();
-
+		roomba.turnLeft();
+		roomba.turnLeft();
+		roomba.turnLeft();
+		while (roomba.frontIsClear()) {
+			while (roomba.nextToABeeper()) {
+			roomba.pickBeeper();
+			totalBeepersCleaned++;
+			}
+			roomba.move();
+		}
+		while (roomba.nextToABeeper()) {
+    		roomba.pickBeeper();
+    		totalBeepersCleaned++;
+		}
         // This method should return the total number of beepers cleaned up.
 		return totalBeepersCleaned;
 	}

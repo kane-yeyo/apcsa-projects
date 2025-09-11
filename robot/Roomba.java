@@ -38,6 +38,9 @@ public class Roomba implements Directions {
 		int totalBeepersCleaned = 0;
 		int totalArea = 0;
 		int largestPile = 0;
+		int largestPileStreet = 0;
+		int largestPileAvenue = 0;
+		int totalPiles = 0;
 		
 		// the code for cleaning up all the beepers
 		while (true) {
@@ -46,6 +49,9 @@ public class Roomba implements Directions {
 				roomba.move();
 				totalArea++;
 				pileSize = 0;
+				if (roomba.nextToABeeper()) {
+					totalPiles++;
+				}
 				while (roomba.nextToABeeper()) {
 					roomba.pickBeeper();
 					totalBeepersCleaned++;
@@ -54,6 +60,8 @@ public class Roomba implements Directions {
 				if (pileSize > largestPile)
 				{
 					largestPile = pileSize;
+					largestPileStreet = roomba.street();
+					largestPileAvenue = roomba.avenue();
 				}	
 			}
 			if (roomba.facingEast()) {
@@ -77,7 +85,9 @@ public class Roomba implements Directions {
 				
         // This method should return the total number of beepers cleaned up.
 		System.out.println("The total area is " + totalArea);
+		System.out.println("There are " + totalPiles + " total piles");
 		System.out.println("The largest pile has " + largestPile + " beepers");
+		System.out.println("The largest pile is found at " + largestPileStreet + " street and " + largestPileAvenue + " avenue");
 		return totalBeepersCleaned;
 	}
 }

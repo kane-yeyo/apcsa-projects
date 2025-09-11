@@ -39,65 +39,33 @@ public class Roomba implements Directions {
 		int totalBeepersCleaned = 0;
 		
 		// the code for cleaning up all the beepers
-		while (roomba.frontIsClear()) {
-			while (roomba.nextToABeeper()) {
-			roomba.pickBeeper();
-			totalBeepersCleaned++;
+		while (true) {
+			while (roomba.frontIsClear()) {
+				roomba.move();
+				while (roomba.nextToABeeper()) {
+					roomba.pickBeeper();
+					totalBeepersCleaned++;
+				}
 			}
-			roomba.move();
-		}
-		roomba.turnLeft();
-		roomba.move();
-		roomba.turnLeft();
-		while (roomba.frontIsClear()) {
-			while (roomba.nextToABeeper()) {
-			roomba.pickBeeper();
-			totalBeepersCleaned++;
+			if (roomba.facingEast()) {
+				roomba.turnLeft();
+				roomba.move();
+				roomba.turnLeft();
 			}
-			roomba.move();
-		}
-		roomba.turnLeft();
-		roomba.turnLeft();
-		roomba.turnLeft();
-		roomba.move();
-		roomba.turnLeft();
-		roomba.turnLeft();
-		roomba.turnLeft();
-		while (roomba.frontIsClear()) {
-			while (roomba.nextToABeeper()) {
-			roomba.pickBeeper();
-			totalBeepersCleaned++;
+			else {
+				roomba.turnLeft();
+				roomba.turnLeft();
+				roomba.turnLeft();
+				roomba.move();
+				roomba.turnLeft();
+				roomba.turnLeft();
+				roomba.turnLeft();
 			}
-			roomba.move();
-		}
-		roomba.turnLeft();
-		roomba.move();
-		roomba.turnLeft();
-		while (roomba.frontIsClear()) {
-			while (roomba.nextToABeeper()) {
-			roomba.pickBeeper();
-			totalBeepersCleaned++;
+			if (!roomba.frontIsClear()) {
+				break;
 			}
-			roomba.move();
 		}
-		roomba.turnLeft();
-		roomba.turnLeft();
-		roomba.turnLeft();
-		roomba.move();
-		roomba.turnLeft();
-		roomba.turnLeft();
-		roomba.turnLeft();
-		while (roomba.frontIsClear()) {
-			while (roomba.nextToABeeper()) {
-			roomba.pickBeeper();
-			totalBeepersCleaned++;
-			}
-			roomba.move();
-		}
-		while (roomba.nextToABeeper()) {
-    		roomba.pickBeeper();
-    		totalBeepersCleaned++;
-		}
+				
         // This method should return the total number of beepers cleaned up.
 		return totalBeepersCleaned;
 	}

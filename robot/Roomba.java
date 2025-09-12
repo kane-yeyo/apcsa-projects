@@ -34,15 +34,17 @@ public class Roomba implements Directions {
 		// inserting the robot at the starting position
 		roomba = new Robot(startX, startY, East, 0);
 
-		// setting the initial amount to 0
+		// setting the initial amounts to 0
 		int totalBeepersCleaned = 0;
 		int totalArea = 0;
 		int largestPile = 0;
 		int largestPileStreet = 0;
 		int largestPileAvenue = 0;
 		int totalPiles = 0;
+		int currentPileStreet = 0;
+		int currentPileAvenue = 0;
 		
-		// the code for cleaning up all the beepers
+		// the code...
 		while (true) {
 			int pileSize = 0;
 			while (roomba.frontIsClear()) {
@@ -51,6 +53,8 @@ public class Roomba implements Directions {
 				pileSize = 0;
 				if (roomba.nextToABeeper()) {
 					totalPiles++;
+					currentPileStreet = roomba.street();
+            		currentPileAvenue = roomba.avenue();
 				}
 				while (roomba.nextToABeeper()) {
 					roomba.pickBeeper();
@@ -60,8 +64,8 @@ public class Roomba implements Directions {
 				if (pileSize > largestPile)
 				{
 					largestPile = pileSize;
-					largestPileStreet = roomba.street();
-					largestPileAvenue = roomba.avenue();
+					largestPileStreet = currentPileStreet;
+					largestPileAvenue = currentPileAvenue;
 				}	
 			}
 			if (roomba.facingEast()) {
@@ -83,11 +87,10 @@ public class Roomba implements Directions {
 			}
 		}
 				
-        // This method should return the total number of beepers cleaned up.
-		System.out.println("The total area is " + totalArea);
+        // finalized outputs
+		System.out.println("The total area is " + totalArea + " units");
 		System.out.println("There are " + totalPiles + " total piles");
-		System.out.println("The largest pile has " + largestPile + " beepers");
-		System.out.println("The largest pile is found at " + largestPileStreet + " street and " + largestPileAvenue + " avenue");
+		System.out.println("The largest pile has " + largestPile + " beepers and is on street " + largestPileStreet + ", avenue " + largestPileAvenue);
 		return totalBeepersCleaned;
 	}
 }

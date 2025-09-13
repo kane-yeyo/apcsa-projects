@@ -86,11 +86,22 @@ public class Roomba implements Directions {
 				break;
 			}
 		}
+
+		double averagePileSize = 0;
+		if (totalPiles > 0) {
+			averagePileSize = (double) totalBeepersCleaned / totalPiles;
+		}
+		double percentDirty = 0;
+		if (totalArea > 0) {
+			percentDirty = ((double) totalPiles / totalArea) * 100;
+		}
 				
         // finalized outputs
 		System.out.println("The total area is " + totalArea + " units");
 		System.out.println("There are " + totalPiles + " total piles");
 		System.out.println("The largest pile has " + largestPile + " beepers and is on street " + largestPileStreet + ", avenue " + largestPileAvenue);
+		System.out.println("The average pile size is " + averagePileSize + " beepers per pile");
+		System.out.println(percentDirty + "% of the room is dirty");
 		return totalBeepersCleaned;
 	}
 }

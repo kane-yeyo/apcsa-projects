@@ -7,10 +7,10 @@ public class Roomba implements Directions {
 	// Main method to make this self-contained
 	public static void main(String[] args) {
 		// LEAVE THIS ALONE!!!!!!
-		String worldName = "robot/basicRoom.wld";
+		String worldName = "robot/finalTestWorld2024.wld";
 
 		Roomba cleaner = new Roomba();
-		int totalBeepers = cleaner.cleanRoom(worldName, 7, 6);
+		int totalBeepers = cleaner.cleanRoom(worldName, 26, 101);
 		System.out.println("Roomba cleaned up a total of " + totalBeepers + " beepers.");
 	}
 
@@ -24,7 +24,7 @@ public class Roomba implements Directions {
 
 		World.readWorld(worldName);
 		World.setVisible(true);
-		World.setDelay(5);
+		World.setDelay(0);
 
 		/** This section will have all the logic that takes the Robot to every location
 		 * and cleans up all piles of beepers. Think about ways you can break this
@@ -47,43 +47,44 @@ public class Roomba implements Directions {
 		// the code...
 		while (true) {
 			int pileSize = 0;
-			while (roomba.frontIsClear()) {
+			if (roomba.nextToABeeper()) {
+				totalPiles++;
+				currentPileStreet = roomba.street();
+				currentPileAvenue = roomba.avenue();
+			}
+			while (roomba.nextToABeeper()) {
+				roomba.pickBeeper();
+				totalBeepersCleaned++;
+				pileSize++;
+			}
+			if (pileSize > largestPile) {
+				largestPile = pileSize;
+				largestPileStreet = currentPileStreet;
+				largestPileAvenue = currentPileAvenue;
+			}
+			totalArea++;
+			if (roomba.frontIsClear()) {
 				roomba.move();
-				totalArea++;
-				pileSize = 0;
-				if (roomba.nextToABeeper()) {
-					totalPiles++;
-					currentPileStreet = roomba.street();
-            		currentPileAvenue = roomba.avenue();
+			} else {
+				if (roomba.facingEast()) {
+					roomba.turnLeft();
+					if (roomba.frontIsClear() != true) {
+						break;
+					}
+					roomba.move();
+					roomba.turnLeft();
+				} else {
+					roomba.turnLeft();
+					roomba.turnLeft();
+					roomba.turnLeft();
+					if (roomba.frontIsClear() != true) {
+						break;
+					}
+					roomba.move();
+					roomba.turnLeft();
+					roomba.turnLeft();
+					roomba.turnLeft();
 				}
-				while (roomba.nextToABeeper()) {
-					roomba.pickBeeper();
-					totalBeepersCleaned++;
-					pileSize++;
-				}
-				if (pileSize > largestPile)
-				{
-					largestPile = pileSize;
-					largestPileStreet = currentPileStreet;
-					largestPileAvenue = currentPileAvenue;
-				}	
-			}
-			if (roomba.facingEast()) {
-				roomba.turnLeft();
-				roomba.move();
-				roomba.turnLeft();
-			}
-			else {
-				roomba.turnLeft();
-				roomba.turnLeft();
-				roomba.turnLeft();
-				roomba.move();
-				roomba.turnLeft();
-				roomba.turnLeft();
-				roomba.turnLeft();
-			}
-			if (roomba.frontIsClear() != true) {
-				break;
 			}
 		}
 

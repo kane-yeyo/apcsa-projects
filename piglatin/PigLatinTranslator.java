@@ -28,14 +28,11 @@ public class PigLatinTranslator {
 
     private static String translateWord(String input) {
         System.out.println("  -> translateWord('" + input + "')");
-
-        String result = "";
-
-        // TODO: Replace this code to correctly translate a single word.
-        // Start here first!
-        // This is the first place to work.
-        result = input; // delete this line
-
+        String pigLatin = input;
+        String firstLetter = input.substring(0,1);
+        String restOfInput = input.substring(1);
+        pigLatin = restOfInput + firstLetter + "ay";
+        String result = pigLatin;
         return result;
     }
 

@@ -33,16 +33,7 @@ public class PigLatinTranslator {
         String restOfInput = input.substring(1);
         pigLatin = restOfInput + firstLetter + "ay";
         String result = pigLatin;
-
-        String pigLatinWord = "";
-        input = input.toLowerCase();
-        int firstVowel = findFirstVowel(input);
-        if (firstVowel == 0) {
-            pigLatin = input + "ay";
-        } else {
-            pigLatin = input.substring(firstVowel) + input.substring(0, firstVowel) + "ay";
-        }
-
+        
         return result;
     }
 

@@ -30,10 +30,13 @@ public class PigLatinTranslator {
         System.out.println("  -> translateWord('" + input + "')");
         String pigLatin = input;
         String firstLetter = input.substring(0,1);
+        String vowels = "aeiouyAEIOUY";
+        if (vowels.contains(firstLetter.toLowerCase())) {
+            return input + "ay";
+        }
         String restOfInput = input.substring(1);
         pigLatin = restOfInput + firstLetter + "ay";
         String result = pigLatin;
-        
         return result;
     }
 

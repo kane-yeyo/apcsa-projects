@@ -29,8 +29,8 @@ public class PigLatinTranslator {
     private static String translateWord(String input) {
         System.out.println("  -> translateWord('" + input + "')");
         
-        if (input.isEmpty()) {
-            return input;
+        if (input.trim().isEmpty()) {
+            return "";
         }
 
         String vowels = "aeiouyAEIOUY";

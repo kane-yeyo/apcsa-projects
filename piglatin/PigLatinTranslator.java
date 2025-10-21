@@ -28,16 +28,29 @@ public class PigLatinTranslator {
 
     private static String translateWord(String input) {
         System.out.println("  -> translateWord('" + input + "')");
-        String pigLatin = input;
-        String firstLetter = input.substring(0,1);
+        
+        if (input.isEmpty()) {
+            return input;
+        }
+
         String vowels = "aeiouyAEIOUY";
-        if (vowels.contains(firstLetter.toLowerCase())) {
+        if (vowels.contains(input.substring(0,1))) {
             return input + "ay";
         }
-        String restOfInput = input.substring(1);
-        pigLatin = restOfInput + firstLetter + "ay";
-        String result = pigLatin;
-        return result;
+
+        int index = 0;
+        while (index < input.length() && !vowels.contains(String.valueOf(input.charAt(index)))) {
+            index++;
+        }
+
+        if (index == 0 || index >= input.length()) {
+            return input + "ay";
+        }
+
+        String consonantsBeforeVowels = input.substring(0, index);
+        String rest = input.substring(index);
+
+        return rest + consonantsBeforeVowels + "ay";
     }
 
     // Add additonal private methods here.

@@ -1,5 +1,4 @@
 package piglatin;
-
 import java.util.Scanner;
 public class PigLatinTranslator {
     public static Book translate(Book input) {

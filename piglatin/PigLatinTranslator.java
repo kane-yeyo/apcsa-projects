@@ -39,14 +39,27 @@ public class PigLatinTranslator {
             input = input.substring(0, input.length() - 1);
         }
 
-        String vowels = "aeiouyAEIOUY";
-        if (vowels.contains(input.substring(0,1))) {
-            return input + "ay";
-        }
+        boolean isCapitalized = Character.isUpperCase(input.charAt(0));
+        boolean isAllCaps = input.equals(input.toUpperCase());
 
+        String lower = input.toLowerCase();
+
+        String vowels = "aeiouyAEIOUY";
         int index = 0;
         while (index < input.length() && !vowels.contains(String.valueOf(input.charAt(index)))) {
             index++;
+        }
+
+        if (isAllCaps) {
+            input = input.toUpperCase();
+        } else if (isCapitalized) {
+            input = Character.toUpperCase(input.charAt(0)) + input.substring(1).toLowerCase();
+        } else {
+        input = input.toLowerCase();
+        }
+
+        if (vowels.contains(input.substring(0,1))) {
+            return input + "ay";
         }
 
         if (index == 0 || index >= input.length()) {

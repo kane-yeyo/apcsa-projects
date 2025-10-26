@@ -33,6 +33,12 @@ public class PigLatinTranslator {
             return "";
         }
 
+        String punctuation = "";
+        if (!Character.isLetter(input.charAt(input.length() - 1))) {
+            punctuation = input.substring(input.length() - 1);
+            input = input.substring(0, input.length() - 1);
+        }
+
         String vowels = "aeiouyAEIOUY";
         if (vowels.contains(input.substring(0,1))) {
             return input + "ay";
@@ -49,6 +55,8 @@ public class PigLatinTranslator {
 
         String consonantsBeforeVowels = input.substring(0, index);
         String rest = input.substring(index);
+
+        rest = rest + punctuation;
 
         return rest + consonantsBeforeVowels + "ay";
     }

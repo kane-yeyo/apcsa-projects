@@ -50,28 +50,55 @@ public class PigLatinTranslator {
             index++;
         }
 
-        if (isAllCaps) {
-            input = input.toUpperCase();
-        } else if (isCapitalized) {
-            input = Character.toUpperCase(input.charAt(0)) + input.substring(1).toLowerCase();
+         String translatedLower;
+         if (index == 0) {
+            translatedLower = lower + "ay";
+        } else if (index >= lower.length()) {
+            translatedLower = lower + "ay";
         } else {
-        input = input.toLowerCase();
+            translatedLower = lower.substring(index) + lower.substring(0, index) + "ay";
         }
 
-        if (vowels.contains(input.substring(0,1))) {
-            return input + "ay";
+        if (vowels.contains(lower.substring(0,1))) {
+            String base = lower + "ay";
+            if (isAllCaps) {
+                base = base.toUpperCase();
+            } else if (isCapitalized) {
+                base = input.substring(0,1).toUpperCase() + input.substring(1) + "ay";
+            } else {
+                base = base.toLowerCase();
+            }
+            return base + punctuation;
         }
+
 
         if (index == 0 || index >= input.length()) {
-            return input + "ay";
+            String base = lower + "ay";
+            if (isAllCaps) {
+                base = base.toUpperCase();
+            } else if (isCapitalized) {
+                base = input.substring(0,1).toUpperCase() + input.substring(1) + "ay";
+            } else {
+                base = base.toLowerCase();
+            }
+            return base + punctuation;
         }
 
-        String consonantsBeforeVowels = input.substring(0, index);
-        String rest = input.substring(index);
+        String consonantsBeforeVowels = lower.substring(0, index);
+        String rest = lower.substring(index);
+        String finalLower = rest + consonantsBeforeVowels + "ay";
 
-        rest = rest + punctuation;
+        String finalTranslated;
+        if (isAllCaps) {
+            finalTranslated = finalLower.toUpperCase();
+        } else if (isCapitalized) {
+            finalTranslated = Character.toUpperCase(finalLower.charAt(0)) + finalLower.substring(1).toLowerCase();
+        } else {
+            finalTranslated = finalLower.toLowerCase();
+        }
 
-        return rest + consonantsBeforeVowels + "ay";
+        finalTranslated = finalTranslated + punctuation;
+        return finalTranslated;
     }
 
     // Add additonal private methods here.

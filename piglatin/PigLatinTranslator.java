@@ -3,13 +3,6 @@ import java.util.Scanner;
 public class PigLatinTranslator {
     public static Book translate(Book input) {
         Book translatedBook = new Book();
-
-        translatedBook.setTitle(translate(input.getTitle()));
-        translatedBook.setAuthor(translate(input.getAuthor()));
-
-        for (String pageContent : input.getPages()) {
-            translatedBook.addPage(translate(pageContent));
-        }
         return translatedBook;
     }
 
@@ -71,7 +64,6 @@ public class PigLatinTranslator {
         }
 
         String finalTranslated;
-
         if (isAllCaps) {
             finalTranslated = translatedLower.toUpperCase();
         } else if (isCapitalized) {

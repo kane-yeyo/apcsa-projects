@@ -47,6 +47,8 @@ public class Book {
     }
 
     public void readFromString(String title, String string) {
+        this.title = title;
+        text.clear();
         Scanner input = new Scanner(string);
         while (input.hasNextLine()) {
             text.add(input.nextLine());
@@ -56,10 +58,9 @@ public class Book {
 
     public void readFromUrl(String title, String url) {
         // load a book from a URL.
-        // https://docs.oracle.com/javase/tutorial/networking/urls/readingURL.html
         this.title = title;
 
-          try (Scanner input = new Scanner(URI.create(url).toURL().openStream())) {
+          try (Scanner input = new Scanner(URI.create("https://www.gutenberg.org/cache/epub/77133/pg77133.txt").toURL().openStream())) {
             while (input.hasNextLine()) {
                 text.add(input.nextLine());
             }

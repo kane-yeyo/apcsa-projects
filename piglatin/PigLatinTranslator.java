@@ -3,13 +3,17 @@ import java.util.Scanner;
 public class PigLatinTranslator {
     public static Book translate(Book input) {
         Book translatedBook = new Book();
+        for (int i = 0; i < input.getLineCount(); i++) {
+            String translatedLine = translate(input.getLine(i));
+            translatedBook.appendLine(translatedLine);
+        }
         return translatedBook;
     }
 
     public static String translate(String input) {
         System.out.println("  -> translate('" + input + "')");
 
-        if (input.isEmpty()) {
+        if (input.isEmpty() || input == null) {
             return "";
         }
 

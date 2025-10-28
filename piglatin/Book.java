@@ -67,6 +67,14 @@ public class Book {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+
+          try (Scanner input = new Scanner(URI.create("https://www.gutenberg.org/cache/epub/1513/pg1513.txt").toURL().openStream())) {
+            while (input.hasNextLine()) {
+                text.add(input.nextLine());
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
     void writeToFile(String name) {

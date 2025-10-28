@@ -36,7 +36,7 @@ public class PigLatinTranslator {
     private static String translateWord(String input) {
         System.out.println(" -> translateWord('" + input + "')");
         
-        if (input.isBlank()) {
+        if (input.isBlank() || input == null) {
             return "";
         }
 
@@ -46,6 +46,10 @@ public class PigLatinTranslator {
         if (!Character.isLetter(input.charAt(input.length() - 1))) {
             punctuation = input.substring(input.length() - 1);
             word = input.substring(0, input.length() - 1);
+        }
+
+        if (word.isEmpty()) {
+            return punctuation;
         }
 
         boolean isCapitalized = Character.isUpperCase(word.charAt(0)) && word.substring(1).equals(word.substring(1).toLowerCase());

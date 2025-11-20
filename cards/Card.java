@@ -16,4 +16,4 @@ public class Card {
         if (value > 12) value = 12;
         this.value = value;
     }
-
+}

@@ -1,5 +1,3 @@
-package cards;
-
 public class Card {
     private int suit;
     private int value;
@@ -15,5 +13,13 @@ public class Card {
         if (value < 0) value = 0;
         if (value > 12) value = 12;
         this.value = value;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public String toString() {
+        return SUITS[suit] + VALUES[value];
     }
 }

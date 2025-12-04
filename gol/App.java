@@ -1,6 +1,6 @@
 package gol;
 
-public class App {
+public class App { iuhiuiuhiuhiuhiuh
 
     public static void main(String[] args)
     {

@@ -25,4 +25,3 @@ public class Card {
         return SUITS[suit] + VALUES[value];
     }
 }
-asojdjwoajw;

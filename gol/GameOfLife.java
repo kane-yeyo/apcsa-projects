@@ -23,7 +23,9 @@ public class GameOfLife implements Board {
 
     // Run the simulation for a number of turns
     public void run(int turns) {
-        // call step the number of times requested
+        for (int i = 0; i < turns; i++) {
+            step();
+        }
     }
 
     // Step the simulation forward one turn.
@@ -31,6 +33,14 @@ public class GameOfLife implements Board {
     {
         print();
         // Update the game board, store a 1 if the cell is alive and a 0 otherwise.
+        int[][] next = new int[board.length][board[0].length];
+
+        for (int x = 0; x < board.length; x++) {
+            for (int y = 0; y < board[0].length; y++) {
+                int neighbors = countNeighbors(x, y);
+                int current = board[x][y];
+            }
+        }
     }
 
 

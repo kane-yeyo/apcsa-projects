@@ -39,8 +39,18 @@ public class GameOfLife implements Board {
             for (int y = 0; y < board[0].length; y++) {
                 int neighbors = countNeighbors(x, y);
                 int current = board[x][y];
+
+                if (current == 1) {
+                    if (neighbors < 2) next[x][y] = 0;
+                    else if (neighbors == 2 || neighbors == 3) next[x][y] = 1;
+                    else next[x][y] = 0;
+                } else {
+                    if (neighbors == 3) next[x][y] = 1;
+                }
             }
         }
+
+        board = next;
     }
 
 

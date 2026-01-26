@@ -10,7 +10,7 @@ public class Main {
                 sum += i;
             }
             System.out.println(sum);
-        }jajajjjajajjaj
+        }
 
-    }
+    } //chose prompt 1
 }

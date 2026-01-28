@@ -11,7 +11,9 @@ public class SelectionSort implements Sorter {
                     minIndex = j;
                 }
             }
-            
+            int temp = input[minIndex]; //saves minimum value in temporary element
+            input[minIndex] = input[i]; //moves value from index i to the spot where the smallest element was
+            input[i] = temp; //smallest value put at position i
         }
     }
 }

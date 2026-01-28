@@ -9,7 +9,13 @@ public class InsertionSort implements Sorter {
     public void sort(int[] input) {
         for (int i = 1; i < input.length; i++) { //starts sort from 2nd element, 1st is considered "sorted"
             int temp = input[i]; //stores current element
-            int j = i - 1;
+            
+            int j = i - 1; //takes left element of current one
+            while (j >= 0 && input[j] > temp) { //accounts for entire array, keeps going if left elements are greater than temp
+                input[j+1] = input[j]; //moves to the right
+                j--; //increments downward
+            }
+            input[j+1] = temp; //inserts temp element into its correct position, j+1 since it's one position to the right
         }
     }
 }

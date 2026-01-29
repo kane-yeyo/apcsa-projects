@@ -1,9 +1,13 @@
 package sorting;
 
 public class InsertionSort implements Sorter {
-
-    public void sort(int[] input) {
+    private int steps = 0;
+    public void algorithm(int[] input) {
         System.out.println("Insertion Sort!!!");
+    }
+    
+    public void sort(int[] input) {
+        steps = 0;
         for (int i = 1; i < input.length; i++) { //starts sort from 2nd element, 1st is considered "sorted"
             int temp = input[i]; //stores current value
             
@@ -11,8 +15,11 @@ public class InsertionSort implements Sorter {
             while (j >= 0 && input[j] > temp) { //keeps going if left elements > temp
                 input[j+1] = input[j]; //moves to the right
                 j--; //increments downward
+                steps++;
             }
             input[j+1] = temp; //current element becomes temp, j+1 since it's to the right
+            steps++;
         }
+        System.out.println("Total steps: " + steps);
     }
 }

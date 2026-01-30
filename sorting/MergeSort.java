@@ -1,10 +1,12 @@
 package sorting;
 
 public class MergeSort implements Sorter {
-
+    private int stepCount2;
     public void sort(int[] input) {
+        stepCount2 = 0;
         // Start mergeSort by providing the whole array
         mergeSort(input, input.length);
+        System.out.println("Total steps: " + stepCount2);
     }
 
      /**
@@ -40,12 +42,13 @@ public class MergeSort implements Sorter {
         merge(list, l, r, mid, n - mid);
     }
 
-    public static void merge(int[] a, int[] l, int[] r, int left, int right) {
+    public void merge(int[] a, int[] l, int[] r, int left, int right) {
         int i = 0, j = 0, k = 0;
         // Copy elements from l and r into the output a
         // Copy the smaller element from each chunk first.
         while (i < left && j < right)
         {
+            stepCount2++;
             if (l[i] <= r[j])
             {
                 a[k++] = l[i++];

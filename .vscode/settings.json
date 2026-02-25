@@ -3,7 +3,7 @@
     ""
   ],
   "java.project.referencedLibraries": [
-    "Polygon/gpdraw.jar",
+    "polygon/gpdraw.jar",
     "robot/KarelJRobot.jar"
   ]
 }

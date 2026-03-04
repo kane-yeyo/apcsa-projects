@@ -49,13 +49,29 @@ public class IrregularPolygon {
     }
 
     public void draw()
-    {
+    {   
+        if (myPolygon.isEmpty()) {
+            return;
+        }
         // Wrap the DrawingTool in a try/catch to allow development without need for graphics.
         try {
-            // TODO: Draw the polygon.
-            // Documents: https://pavao.org/compsci/gpdraw/html/gpdraw/DrawingTool.html
-            //DrawingTool myDrawingTool = new DrawingTool(new SketchPad(500, 500));
-            //myDrawingTool.move(50, 50);
+            SketchPad myPaper = new SketchPad(500, 500);
+            DrawingTool myDrawingTool = new DrawingTool(myPaper);
+            
+            //Moves to the first point
+            Point2D.Double first = myPolygon.get(0);
+            myDrawingTool.up();
+            myDrawingTool.move(first.getX(), first.getY());
+            myDrawingTool.down();
+            
+            //Draws the lines to the rest of the points
+            for (int i = 1; i < myPolygon.size(); i++) {
+                Point2D.Double next = myPolygon.get(i);
+                myDrawingTool.move(next.getX(), next.getY());
+            }
+            
+            //Closes the shape by returning to the first point
+            myDrawingTool.move(first.getX(), first.getY());
         } catch (java.awt.HeadlessException e) {
             System.out.println("Exception: No graphics support available.");
         }

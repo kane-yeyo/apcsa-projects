@@ -4,7 +4,7 @@ public class IntegerStack {
 
     private int[] stack;
     private int depth;
-a
+
     // Construct a stack of given depth
     public IntegerStack(int depth)
     {

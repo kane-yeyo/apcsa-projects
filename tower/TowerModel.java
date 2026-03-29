@@ -53,6 +53,10 @@ public class TowerModel {
             System.out.println("Index isn't within range 0-2");
             return;
         }
+
+        if (towers[source].peek() == 0) { //checks if the tower is empty
+            System.out.println("Tower is empty");
+        }
     }
 
     // Helper method to nicely print the current model state.

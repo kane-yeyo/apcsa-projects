@@ -64,6 +64,8 @@ public class TowerModel {
             towers[source].push(disk);
             System.out.println("Cannot place larger disks on smaller disks");
         }
+
+        towers[destination].push(disk); //adds a disk to a tower
     }
 
     // Helper method to nicely print the current model state.

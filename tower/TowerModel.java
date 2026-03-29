@@ -57,6 +57,13 @@ public class TowerModel {
         if (towers[source].peek() == 0) { //checks if the tower is empty
             System.out.println("Tower is empty");
         }
+
+        int disk = towers[source].pop(); //takes a disk to move to another tower
+
+        if (towers[destination].peek () != 0 && towers[destination].peek() < disk) { //checks if the disk is larger than the one it's about to be placed on 
+            towers[source].push(disk);
+            System.out.println("Cannot place larger disks on smaller disks");
+        }
     }
 
     // Helper method to nicely print the current model state.

@@ -44,12 +44,15 @@ public class TowerModel {
         return towerHeight;
     }
 
-
     // Move one disk from the source stack to the destination stack.
     public void move(int source, int destination)
     {
         System.out.println("Move #" + ++moveCounter + " from " + source + " to " + destination);
-        // TODO!!
+        
+        if (source < 0 || source >= towers.length || destination < 0 || destination >= towers.length) { //checks if the index is from 0-2
+            System.out.println("Index isn't within range 0-2");
+            return;
+        }
     }
 
     // Helper method to nicely print the current model state.

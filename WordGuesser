@@ -1,0 +1,67 @@
+import java.util.Scanner; //reads keyboard input
+
+public class WordGuesser { //creates class
+
+    public static void main(String[] args) { //defines the main method
+
+        String[] words = { //creates an array of possible 5-letter words
+            "apple", "grape", "chair", "bread", "smile",
+            "plant", "stone", "mouse", "light", "water"
+        };
+
+        int index = (int)(Math.random() * words.length); //picks a random array index
+        String answer = words[index]; //grabs the word at the random index
+
+        Scanner input = new Scanner(System.in); //creates a scanner that reads the index
+
+        System.out.println("Welcome to Word Guesser!");
+        System.out.println("Guess the 5-letter word.");
+        System.out.println("You have 6 attempts.");
+        System.out.println();
+
+        boolean guessed = false; //word is not guessed yet
+        int attempt = 1; //attempts start at 1
+
+        while (!guessed && attempt <= 6) { //keeps going until guessed or no attempts left
+            //^-- boolean and logical operators
+            System.out.print("Guess #" + attempt + ": "); //monitors attempt number
+            String guess = input.nextLine().toLowerCase(); //makes all inputs lowercase
+
+            if (guess.length() != 5) { //length cannot exceed 5 letters
+                System.out.println("Please enter exactly 5 letters.");
+            } else if (guess.equals(answer)) { //ends the loop if matched
+                System.out.println("Correct! You won!");
+                guessed = true;
+            } else {
+                attempt++; //increments attempts
+
+                System.out.print("Result: ");
+
+                for (int i = 0; i < 5; i++) {
+                    String letter = guess.substring(i, i + 1);
+
+                    if (letter.equals(answer.substring(i, i + 1))) {
+                        System.out.print(letter + " "); //shows letter if right spot
+                    } else if (answer.indexOf(letter) >= 0) {
+                        System.out.print("* "); //shows star if wrong spot
+                    } else {
+                        System.out.print("_ "); //shows underscore if not in word
+                    }
+                }
+
+                System.out.println();
+                System.out.println("Letter = correct spot");
+                System.out.println("* = in word but wrong spot"); //explains each symbol
+                System.out.println("_ = not in word");
+                System.out.println();
+            }
+        }
+
+        if (!guessed) { //if the word remains unguessed, reveal the answer (loss)
+            System.out.println("Out of guesses!");
+            System.out.println("The word was: " + answer);
+        }
+
+        input.close(); //closes the scanner
+    }
+}

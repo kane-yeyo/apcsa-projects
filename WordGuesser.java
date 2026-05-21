@@ -5,8 +5,31 @@ public class WordGuesser { //creates class
     public static void main(String[] args) { //defines the main method
 
         String[] words = { //creates an array of possible 5-letter words
-            "apple", "grape", "chair", "bread", "smile",
-            "plant", "stone", "mouse", "light", "water"
+            "actor", "adult", "alarm", "album", "angel", "ankle", "arrow", "beard", "bench", "birth",
+"blade", "blood", "board", "brain", "brand", "brick", "brush", "cabin", "cable", "candy",
+"chest", "child", "china", "clock", "coach", "coast", "coral", "crash", "cream", "crime",
+"cross", "crowd", "crown", "cycle", "delay", "depth", "devil", "doubt", "draft", "drama",
+"drink", "earth", "enemy", "entry", "error", "event", "faith", "fault", "field", "fence",
+"fiber", "flock", "floor", "flute", "force", "frame", "front", "fruit", "giant", "globe",
+"ghost", "giant", "glory", "grain", "grant", "grass", "guard", "guest", "habit", "heart",
+"honey", "hotel", "humor", "ideal", "image", "index", "input", "issue", "jelly", "joint",
+"judge", "layer", "leave", "level", "limit", "local", "logic", "lunch", "major", "maple",
+"match", "metal", "meter", "model", "money", "month", "moral", "motor", "music", "nurse",
+"offer", "order", "owner", "paint", "panel", "party", "pasta", "peace", "penny", "phone",
+"photo", "piano", "pilot", "pizza", "plane", "plate", "point", "pound", "power", "press",
+"price", "prize", "proof", "proud", "queen", "radio", "ranch", "range", "ratio", "reply",
+"river", "robot", "rough", "royal", "ruler", "scale", "scene", "scope", "score", "sense",
+"serve", "shade", "shake", "shape", "shift", "shine", "shirt", "shock", "shoes", "shoot",
+"skill", "skirt", "slope", "smoke", "snake", "space", "spare", "speak", "speed", "spend",
+"spice", "split", "spoon", "sport", "squad", "stack", "staff", "stage", "stair", "stamp",
+"stand", "stare", "start", "state", "steam", "steel", "stick", "still", "stock", "store",
+"storm", "story", "strip", "style", "sugar", "swing", "sword", "taste", "teach", "teeth",
+"theme", "thick", "thing", "think", "third", "thumb", "tiger", "title", "toast", "today",
+"token", "topic", "total", "touch", "tower", "track", "trade", "trail", "train", "treat",
+"trend", "trial", "tribe", "trick", "troop", "truck", "truly", "trust", "tulip", "uncle",
+"union", "unity", "upper", "urban", "usual", "valid", "value", "video", "virus", "visit",
+"vital", "vocal", "voice", "waste", "watch", "water", "wheel", "where", "which", "while",
+"white", "whole", "woman", "world", "worry", "worth", "wound", "yacht", "youth", "zebra"
         };
 
         int index = (int)(Math.random() * words.length); //picks a random array index
